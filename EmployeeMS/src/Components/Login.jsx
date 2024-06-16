@@ -1,3 +1,4 @@
+// eslint-disable-next-line no-unused-vars
 import React, { useState } from 'react'
 import './style.css'
 import axios from 'axios'
@@ -5,8 +6,8 @@ import { useNavigate } from 'react-router-dom'
 
 const Login = () => {
   const [values, setvalues] = useState({
-    email: 'admin@gmail.com',
-    password: '12345',
+    email: '',
+    password: '',
   })
 
   const [error, setError] = useState(null)
@@ -14,7 +15,7 @@ const Login = () => {
   const handleSubmit = (event) => {
     event.preventDefault()
     axios
-      .post('http://localhost:/adminlogin', values)
+      .post('http://localhost:3000/auth/adminlogin', values)
       .then((result) => {
         if (result.data.loginStatus) {
           navigate('/dashboard')
@@ -27,7 +28,7 @@ const Login = () => {
   return (
     <div className='d-flex justify-content-center align-items-center vh-100 loginpage'>
       <div className='p-3 rounded w-25 border loginForm'>
-        <div className='text-danger'>{error && error}</div>
+        <div className='text-warning'>{error && error}</div>
         <h2>Login page</h2>
         <form onSubmit={handleSubmit}>
           <div className='mb-3'>
