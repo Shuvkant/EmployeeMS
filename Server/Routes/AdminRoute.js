@@ -113,7 +113,16 @@ router.put('/edit_employee/:id', (req, res) => {
     req.body.category_id,
   ]
   con.query(sql, [...values, id], (err, result) => {
-    if (err) return res.json({ Status: false, Error: 'Query Error' + err })
+    if (err) return res.json({ Status: false, Error: 'Query Error' })
+    return res.json({ Status: true, Result: result })
+  })
+})
+
+router.delete('/delete_employee/:id', (req, res) => {
+  const id = req.params.id
+  const sql = 'DELETE from employee where id=?'
+  con.query(sql, [id], (err, result) => {
+    if (err) return res.json({ Status: false, Error: 'Query Error' })
     return res.json({ Status: true, Result: result })
   })
 })
