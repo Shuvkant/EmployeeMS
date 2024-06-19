@@ -44,8 +44,6 @@ router.post('/add_category', (req, res) => {
   })
 })
 
-
-
 //image upload
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
@@ -63,8 +61,7 @@ const upload = multer({
   storage: storage,
 })
 
-
-router.post('/add_employee', upload.single('image') ,(req, res) => {
+router.post('/add_employee', upload.single('image'), (req, res) => {
   const sql = `INSERT INTO employee
   (name,email,password, address,salary, image,category_id)
   VALUES (?)`
@@ -86,11 +83,37 @@ router.post('/add_employee', upload.single('image') ,(req, res) => {
   })
 })
 
-
 router.get('/employee', (req, res) => {
   const sql = 'SELECT * FROM employee'
   con.query(sql, (err, result) => {
     if (err) return res.json({ Status: false, Error: 'Query Error' })
+    return res.json({ Status: true, Result: result })
+  })
+})
+
+router.get('/employee/:id', (req, res) => {
+  const id = req.params.id
+  const sql = 'SELECT * FROM employee where id=?'
+  con.query(sql, [id], (err, result) => {
+    if (err) return res.json({ Status: false, Error: 'Query Error' })
+    return res.json({ Status: true, Result: result })
+  })
+})
+
+router.put('/edit_employee/:id', (req, res) => {
+  const id = req.params.id
+  const sql = `UPDATE employee 
+      set name = ?, email = ?, salary = ?, address = ?, category_id = ? 
+      where id = ?`
+  const values = [
+    req.body.name,
+    req.body.email,
+    req.body.salary,
+    req.body.address,
+    req.body.category_id,
+  ]
+  con.query(sql, [...values, id], (err, result) => {
+    if (err) return res.json({ Status: false, Error: 'Query Error' + err })
     return res.json({ Status: true, Result: result })
   })
 })
