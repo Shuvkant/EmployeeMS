@@ -37,7 +37,7 @@ The software development process for this Employee Management System involves se
 2. **Employee Management**: This phase involves the development of features that allow for the addition, modification, and deletion of employee records in the database. This should be designed in a user-friendly way, allowing easy access and manipulation of employee data.
 3. **Category Management**: This stage will involve the implementation of a feature that allows for the creation and management of different categories for employee classification. This could include job roles, departments, or any other relevant grouping mechanism.
 4. **Profile Settings**: Here, we will develop a feature that allows each employee to manage their own profile settings. This includes personal details, contact information, and password settings.
-5. Payroll Information: The payroll information of the employee is seen in this section.
+5. **Payroll Information**: The payroll information of the employee is seen in this section.
 6. **Logout Functionality**: The final stage involves creating a secure logout mechanism that ensures user sessions are ended securely and all sensitive information is protected.
 
 Each of these stages will follow the standard software development life cycle of planning, designing, coding, testing, deploying, and maintenance.
