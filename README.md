@@ -1,3 +1,13 @@
+## To run dev 
+```
+cd EmployeeMS
+npm run dev
+```
+## To Start
+```
+cd server
+npm start 
+```
 <img src=EmployeeMS/public/images/employeems.jpeg>
 The Employee Management System is a comprehensive solution designed to simplify and streamline the processes of managing employee data and related operations within an organization. Leveraging modern technologies such as MySQL for data storage, React for the front-end user interface, and Axios for handling back-end operations, the system centralizes all employee information in a secure, user-friendly platform. This document details the system's requirements, software development model, key functional and non-functional requirements, and the proposed process for system development.
 
