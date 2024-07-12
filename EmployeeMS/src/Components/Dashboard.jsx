@@ -61,7 +61,7 @@ const Dashboard = () => {
               </li>
               <li className='w-100'>
                 <Link
-                  to='/dashboard/profile'
+                  to='/dashboard/Payroll'
                   className='nav-link px-0 align-middle text-white'
                 >
                   <i className='fs-4 bi-cash ms-2'></i>
