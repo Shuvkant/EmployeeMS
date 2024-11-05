@@ -12,6 +12,7 @@ import Profile from "./Components/Profile";
 import AddCategory from "./Components/AddCategory";
 import AddEmployee from "./Components/AddEmployee";
 import EditEmployee from "./Components/EditEmployee";
+import PrivateRoute from "./Components/PrivateRoute.jsx";
 
 function App() {
   return (
@@ -19,7 +20,14 @@ function App() {
       <Routes>
         {/* <Route path='/' element={<Start />}></Route> */}
         <Route path="/" element={<Login />}></Route>
-        <Route path="/dashboard" element={<Dashboard />}>
+        <Route
+          path="/dashboard"
+          element={
+            <PrivateRoute>
+              <Dashboard />
+            </PrivateRoute>
+          }
+        >
           <Route path="" element={<Home />}></Route>
           <Route path="/dashboard/employee" element={<Employee />}></Route>
           <Route path="/dashboard/category" element={<Category />}></Route>

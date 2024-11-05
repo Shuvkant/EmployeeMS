@@ -4,12 +4,13 @@ import "bootstrap-icons/font/bootstrap-icons.css";
 import axios from "axios";
 
 const Dashboard = () => {
-  const anvigate = useNavigate();
-  axios.defaults.withCredentials = true;
+  const navigate = useNavigate();
   const handleLogout = () => {
+    axios.defaults.withCredentials = true;
     axios.get("http://localhost:3000/auth/logout").then((result) => {
       if (result.data.Status) {
-        anvigate("/");
+        localStorage.removeItem("valid");
+        navigate("/");
       }
     });
   };
